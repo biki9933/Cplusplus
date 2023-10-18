@@ -85,6 +85,12 @@ build CMakeFiles/Cplusplus.dir/10.3.cpp.obj: CXX_COMPILER__Cplusplus_unscanned_D
   OBJECT_DIR = CMakeFiles\Cplusplus.dir
   OBJECT_FILE_DIR = CMakeFiles\Cplusplus.dir
 
+build CMakeFiles/Cplusplus.dir/test.cpp.obj: CXX_COMPILER__Cplusplus_unscanned_Debug D$:/my_Github/Cplusplus/Cplusplus/test.cpp || cmake_object_order_depends_target_Cplusplus
+  DEP_FILE = CMakeFiles\Cplusplus.dir\test.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Cplusplus.dir
+  OBJECT_FILE_DIR = CMakeFiles\Cplusplus.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Cplusplus
@@ -93,7 +99,7 @@ build CMakeFiles/Cplusplus.dir/10.3.cpp.obj: CXX_COMPILER__Cplusplus_unscanned_D
 #############################################
 # Link the executable Cplusplus.exe
 
-build Cplusplus.exe: CXX_EXECUTABLE_LINKER__Cplusplus_Debug CMakeFiles/Cplusplus.dir/main.cpp.obj CMakeFiles/Cplusplus.dir/10.11(class).cpp.obj CMakeFiles/Cplusplus.dir/10.3(2).cpp.obj CMakeFiles/Cplusplus.dir/10.3(1).cpp.obj CMakeFiles/Cplusplus.dir/10.12(实验课）.cpp.obj CMakeFiles/Cplusplus.dir/10.3.cpp.obj
+build Cplusplus.exe: CXX_EXECUTABLE_LINKER__Cplusplus_Debug CMakeFiles/Cplusplus.dir/main.cpp.obj CMakeFiles/Cplusplus.dir/10.11(class).cpp.obj CMakeFiles/Cplusplus.dir/10.3(2).cpp.obj CMakeFiles/Cplusplus.dir/10.3(1).cpp.obj CMakeFiles/Cplusplus.dir/10.12(实验课）.cpp.obj CMakeFiles/Cplusplus.dir/10.3.cpp.obj CMakeFiles/Cplusplus.dir/test.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Cplusplus.dir
