@@ -3,11 +3,8 @@ project(Cplusplus)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Cplusplus main.cpp
-        "10.11(class).cpp"
+add_executable(Cplusplus 中缀表达式求值法.cpp
         "10.3(2).cpp"
         "10.3(1).cpp"
-        "10.12(class).cpp"
         "10.3.cpp"
-        "test.cpp"
-        "test.h")
+)

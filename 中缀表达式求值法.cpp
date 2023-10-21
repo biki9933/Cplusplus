@@ -10,6 +10,10 @@ using namespace std;
 //利用中缀表达式法，如何实现？
 //最后输出结果
 
+//首先创建类模板Stack
+//创建栈 optr otr，opnd ond；
+//根据ppt上的中缀算数表达式求值的思路进行实现
+
 template<class ElemType>
 class Stack  //总栈
 {
@@ -24,7 +28,7 @@ public:
     virtual ~Stack();
     void Push(ElemType e); //入栈
     ElemType Top(ElemType &e);   //返回栈顶
-    void Pop(ElemType &e);   //出栈
+    ElemType Pop();   //出栈
 
 };
 
@@ -34,7 +38,7 @@ template<class ElemType>
 void Stack<ElemType>::Init(int size) {
     maxSize=size;
     if(elems!=NULL) delete []elems;
-    elems = new ElemType [maxSize];
+    elems = new ElemType[maxSize];
     count = 0;
 }
 
@@ -54,7 +58,7 @@ Stack<ElemType>::~Stack(){
 
 template<class ElemType>
 void Stack<ElemType>::Push(ElemType e) {
-    elems[count++] =e;
+    elems[count++] = e;
 }
 
 template<class ElemType>
@@ -64,9 +68,10 @@ ElemType Stack<ElemType>::Top(ElemType &e) {
 }
 
 template<class ElemType>
-void Stack<ElemType>::Pop(ElemType &e){
-    e = elems[count-1];
+ElemType Stack<ElemType>::Pop(){
     count--;
+    return elems[count];
+
 }
 
 class optr: public Stack<char>
@@ -115,18 +120,6 @@ int Sign_Sum(int a,int b,char c){
         return a/b;
     return 0;
 
-//    switch (c) {
-//        case '+':
-//            return a+b;
-//        case '-':
-//            return a-b;
-//        case '*':
-//            return a*b;
-//        case '/':
-//            return a/b;
-//
-//    }
-//    return 0;
 }
 
 int Compare_more1less2EQ3(char a,char b){
@@ -135,18 +128,20 @@ int Compare_more1less2EQ3(char a,char b){
     switch (a) {
         case '+':
         case '-':
-            va = 0;
+            va = 11;
             break;
         case '*':
         case '/':
-            va = 2;
+            va = 14;
             break;
         case '(':
+            va = 7;
+            break;
         case ')':
-            va = 4;
+            va = 14;
             break;
         case '=':
-            va = 3;
+            va = 1;
             break;
 
 
@@ -155,18 +150,20 @@ int Compare_more1less2EQ3(char a,char b){
     switch (b) {
         case '+':
         case '-':
-            vb = 0;
+            vb = 10;
             break;
         case '*':
         case '/':
-            vb = 2;
+            vb = 13;
             break;
         case '(':
+            vb = 16;
+            break;
         case ')':
-            vb = 4;
+            vb = 7;
             break;
         case '=':
-            vb = 3;
+            vb = 1;
             break;
 
     }
@@ -188,54 +185,42 @@ int algorithm() {
     char ch;
     cin.get(ch);
 
-    //https://blog.csdn.net/qq_51297987/article/details/118398105
-    //从输入流获取一字符ch；
-//    int sum, i = 0, k = 0, q = 0;
-//    int flag[5];
-//    读取的数字存储在flag中
-//    while (i < e.length()) {
-//        sum = 0;
-//        while (isdigit(e[i])) {
-//            k = 1;
-//            sum = sum * 10 + e[i++] - '0';
-//        }
-//        if (k == 1) {
-//            flag[q] = sum;
-//            q++;
-//        }
-//        k = 0;
-//        while (!isdigit(e[i]))i++;
-//    }
 
     //取出optr的栈顶值optrTop
     char top;
     otr.Top(top);
-    int q = 0;
-    while(top != '=' || ch != '='){
+    while( !(ch == '=' && top == '=')){
 
-        if(isdigit(ch) == 0 ){
-//                cin.putback(ch);    //有待商榷
-            ond.Push(ch);
+        if(isdigit(ch) > 0 ){
+            int tem =ch -'0';
+
+
+            ond.Push(tem);
             ch = cin.get();
+            otr.Top(top);
+
         }
         else {
             if(Compare_more1less2EQ3(top,ch) == 2){
                 otr.Push(ch);
                 ch = cin.get();
+                otr.Top(top);
             }
             else if(Compare_more1less2EQ3(top,ch) ==1) {
                 char sign;
-                otr.Pop(sign);
+                sign = otr.Pop();
                 int value0;
-                ond.Pop(value0);
+                value0= ond.Pop();
                 int value1;
-                ond.Pop(value1);
+                value1 =ond.Pop();
                 int sum = Sign_Sum(value0,value1,sign);
                 ond.Push(sum);
-            }
-            else if(Compare_more1less2EQ3(top,ch) == 3&& ch ==')'){
+                otr.Top(top);
+
+
+            }else if(Compare_more1less2EQ3(top,ch) == 3&& ch ==')'){
                 char a;  //无用
-                otr.Pop(a);
+                a = otr.Pop();
                 ch = cin.get();
 
             }
@@ -244,15 +229,15 @@ int algorithm() {
         }
 
     }
-    otr.Top(top);
-    cout<<top<<endl;
+    int value11;
+    ond.Top(value11);
+    cout<<value11<<endl;
     return 0;
-
 
 }
 
 int main(){
     algorithm();
-    return 0;
+
 }
 
