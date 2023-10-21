@@ -24,7 +24,7 @@ public:
     virtual ~Stack();
     void Push(ElemType e); //入栈
     ElemType Top(ElemType &e);   //返回栈顶
-    void Pop(ElemType e);   //出栈
+    void Pop(ElemType &e);   //出栈
 
 };
 
@@ -64,7 +64,7 @@ ElemType Stack<ElemType>::Top(ElemType &e) {
 }
 
 template<class ElemType>
-void Stack<ElemType>::Pop(ElemType e){
+void Stack<ElemType>::Pop(ElemType &e){
     e = elems[count-1];
     count--;
 }
@@ -253,5 +253,6 @@ int algorithm() {
 
 int main(){
     algorithm();
+    return 0;
 }
 

@@ -1,12 +1,9 @@
 # ninja log v5
 4	83	7193323308956441	CMakeFiles/Cplusplus.dir/10.11(class).cpp.obj	f28b139764222e30
-0	235	7193320876225008	CMakeFiles/Cplusplus.dir/main.cpp.obj	118672b65fdaf910
+2	239	7194197124351284	CMakeFiles/Cplusplus.dir/main.cpp.obj	118672b65fdaf910
 12	281	7193323310951933	CMakeFiles/Cplusplus.dir/10.3.cpp.obj	d03741ef0550c8bd
 248	320	7193320877045552	Cplusplus.exe	15376e7ddbf224cf
 6	82	7193323308956441	CMakeFiles/Cplusplus.dir/10.3(2).cpp.obj	2949500b75943180
 8	92	7193323309067798	CMakeFiles/Cplusplus.dir/10.3(1).cpp.obj	a2a01c656fdde834
-9	4718	7194191358898229	CMakeFiles/Cplusplus.dir/test.cpp.obj	e4e7ccccf78a3a45
-1	7296	7194192313803450	build.ninja	6605ab92df85964c
 5	55	7194195352799851	CMakeFiles/Cplusplus.dir/test.cpp.obj	e4e7ccccf78a3a45
-2	254	7194195354793868	CMakeFiles/Cplusplus.dir/main.cpp.obj	118672b65fdaf910
-2	239	7194197124351284	CMakeFiles/Cplusplus.dir/main.cpp.obj	118672b65fdaf910
+1	7296	7194291417251139	build.ninja	6605ab92df85964c
