@@ -179,8 +179,8 @@ int Compare_more1less2EQ3(char a,char b){
 
 int algorithm() {
 
-    optr otr(10);
-    opnd ond(10);
+    optr otr(20);
+    opnd ond(20);
     otr.Push('=');
     char ch;
     cin.get(ch);
@@ -238,6 +238,7 @@ int algorithm() {
 
 int main(){
     algorithm();
+    return 0;
 
 }
 
